@@ -40,3 +40,6 @@ streamlit.dataframe(my_data_rows)
 
 add_new_fruit = streamlit.text_input('Select second fruit?','Apple')
 streamlit.write('Thanks for adding ', add_new_fruit)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_new_fruit)
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+streamlit.dataframe(fruityvice_normalized)
