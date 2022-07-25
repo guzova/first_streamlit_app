@@ -43,3 +43,7 @@ streamlit.write('Thanks for adding ', add_new_fruit)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_new_fruit)
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
+
+
+
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
